@@ -173,8 +173,22 @@
   
 \end{frame}
 
-%\section{Hardware Validation}
-%\begin{frame}{Hardware Validation} 
+\section{Pseudorandom Generator}
+\begin{frame}{Pseudorandom Generator (PRG)}
+\begin{itemize}
+	\item $G: \{0,1\}^r \rightarrow \{0,1\}^n$ is a {\underline{pseudorandom generator}} such that it \textcolor{red}{appears random (fools)} to a \textcolor{blue}{class of test functions}.
+	\pause
+	\item $G~\epsilon$-fools $F$ if $\forall f \in F$ such that $f: \{0,1\}^n \rightarrow \{0,1\}$
+	$$\Big|\prob\big[f(y)\big] -  \prob\big[f(G(x))\big]\Big| \leq \epsilon$$
+	where $x$ is choosen uniformly from $\{0,1\}^r$ and $y$ from $\{0,1\}^n$
+	\pause
+	\begin{itemize}
+		\item[--] Parity-function.
+		\item[--] Polynomial-funtions.
+		\item[--] \textcolor{blue}{Boolean-circuits}.
+	\end{itemize}
+\end{itemize}
+\end{frame} 
 %	\begin{minipage}[b]{0.3\textwidth}
 %        \begin{center}
 %%	        \includegraphics[width=\columnwidth]{figures/HardwareValidation}
