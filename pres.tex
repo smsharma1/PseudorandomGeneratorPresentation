@@ -299,7 +299,7 @@
 	\item Construction:
 	\pause
 	\begin{itemize}
-		\item[--] $f$ a boolean function, $f:\{0, 1\}^m \rightarrow \{0, 1\}$, such that \textcolor{red}{$H_{f(m)} \ge n$}.
+		\item[--] $f$ a boolean function, $f:\{0, 1\}^m \rightarrow \{0, 1\}$, such that \textcolor{red}{$H_{f(m)} \ge n^2$}.
 		\pause
 		\item[--] $A$ a boolean $n \times l$ matrix which is a \textcolor{red}{$(logn,m)$} design.
 		\pause
@@ -310,8 +310,31 @@
 \end{itemize}
 \end{frame}
 \begin{frame}{Proof (Main Idea)}
+\begin{itemize}
+	\item Assume that $G$ is not pseudorandom generator.
+	$$ \Big|\prob\big[C(y)=1\big] - \prob\big[C(G (x))=1\big]\Big| > \frac{1}{n}$$
+	\pause
+	\item This implies that one of the bits of $f_{A(x)}$ can be predicted from the previous ones
+	\pause 
+	\item Construct the circuit that predicts the next bit of $f_{A(x)}$
+	\pause
+	\item This contradicts that  \textcolor{red}{$H_{f(m)} \ge n^2$}
+\end{itemize}
 \end{frame}
-\begin{frame}{What did we achieved}
+\begin{frame}{Nearly Disjoint Sets}
+\begin{itemize}
+	\item Given a \textcolor{red}{``hard"} function $f$ with a certain \textcolor{red}{``hardness"}, $H_f$, and we wish to use it to generate a pseudorandom generator $G:l \rightarrow n$.
+	\pause
+	\item Aim is to \textcolor{red}{minimize} l, that is to get a pseudorandom generator that uses the smallest number of random bits.
+	\pause
+	\item Require a \textcolor{red}{$(\log n,m)$-design}, where $m$ must satisfy \textcolor{red}{$H_{f(m)} \geq n^2$}
+	\pause
+	\item \textcolor{blue}{For all integers $n$ and $m$, such that $logn \leq m \leq n$, there exists an $n \times l$ matrix which is a $(\log n,m)$-design, where $l = O(m^2)$. Moreover, the matrix can be computed by a Turing machine running in space $O(\log n)$.}
+	\pause
+	\item \textcolor{blue}{For all integers $n$ and $m$, where $m=C\log n$, there exists a $n \times l$ matrix which is a $(\log n,m)$-design where $l = O(C^2\log n)$. Moreover, the matrix can be computed by a Turing machine running in time polynomial in $n$}
+\end{itemize}
+\end{frame}
+\begin{frame}{What did we achieved?}
 \begin{itemize}
 	\item  For every function $s, l \leq s(l) \leq 2^l$ the following are equivalent:
 	\pause
