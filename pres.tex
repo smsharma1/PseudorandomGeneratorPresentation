@@ -145,9 +145,12 @@
 \begin{document}
 
 \newcommand{\ddnnf}{\ensuremath{\mathsf{dag}}}
+\newcommand{\Poly}{\ensuremath{\mathsf{P}}}
+\newcommand{\NP}{\ensuremath{\mathsf{NP}}}
 \newcommand{\WAPS}{\ensuremath{\mathsf{WAPS}}}
 \newcommand{\KUS}{\ensuremath{\mathsf{KUS}}}
 \newcommand{\DSPACE}{\ensuremath{\mathsf{DSPACE}}}
+\newcommand{\EXPTIME}{\ensuremath{\mathsf{EXPTIME}}}
 \newcommand{\RNC}{\ensuremath{\mathsf{RNC}}}
 \newcommand{\BPP}{\ensuremath{\mathsf{BPP}}}
 \newcommand{\DTIME}{\ensuremath{\mathsf{DTIME}}}
@@ -231,6 +234,47 @@
 				\quad \quad \vdots
  	        \end{itemize}
  	    \end{minipage} 
+\end{frame}
+\begin{frame}{Prior Work}
+\begin{itemize}
+	\item \href{https://link.springer.com/chapter/10.1007/3-540-10843-2_43}{Shamir}: RSA function
+	\item  \href{https://dl.acm.org/citation.cfm?id=2068}{Blum and Micali}: Intractability of the Discrete Logarithm function
+	\item \href{https://ieeexplore.ieee.org/document/4568378}{Yao}: One-way permutation
+	\pause
+	\begin{itemize}
+		\item[--] \textcolor{red}{Require a strong unproven assumption. (the existence of a one-way function, an assumption which is even stronger than $ \Poly \neq \NP$)}
+		\item[--] \textcolor{red}{sequential}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{Contribution of Paper}
+\begin{itemize}
+	\item Construction of pseudorandom generator based on much weaker assumptions ({\EXPTIME} cannot be approximated by circuits of small size).
+	\item Equivalence between the problem of proving lower bounds for the size of circuits approximating functions in {\EXPTIME}, and the problem of constructing pseudorandom generators which run ``sufficiently fast''.
+	\item Randomized Parallel Computation.\\
+	\quad \quad \vdots
+\end{itemize}
+\end{frame}
+\begin{frame}{Hardness}
+\begin{itemize}
+	\item Generator is constructed on the assumption of existence of \textcolor{red}{hard} functions.
+	\pause
+	\item \textcolor{red}{Hard}: function can not be \underline{computed/\textcolor{blue}{approximated}} by \textcolor{blue}{small}-circuits.
+	\pause
+	\item  Let $f:\{0,1\}^n \rightarrow \{0, 1\}$ be a boolean function. We say that $f$ is (\textcolor{blue}{$\epsilon,S$})-hard if for any circuit $C$ of size $S$,
+	$$\Big|\prob\big[C(x)=f(x)\big]- \frac{1}{2}\Big| < \frac{\epsilon}{2}$$
+	\pause
+	\item \href{https://ieeexplore.ieee.org/document/4568378/}{Yao} proved that even harder function can be constructed by xor-ing multiple copies of $f$.
+	\pause
+	\item Let $f_1, \cdots, f_k$ all be $(\epsilon,S)$-hard. Then for any $\delta>0$, the function $f(x_1, \cdot, x_k)$ defined by
+	$$f(x_1, \cdot, x_k)= \sum_{i = i}^{k} f_i(xi) (mod~2)$$
+	is  $(\epsilon^k + \delta, \delta^2(1-\epsilon)^2S)$-hard.
+\end{itemize}
+\end{frame}
+\begin{frame}{Hardness}
+\begin{itemize}
+	\item 
+\end{itemize}
 \end{frame}
 %	\begin{minipage}[b]{0.3\textwidth}
 %        \begin{center}
