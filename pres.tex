@@ -147,6 +147,11 @@
 \newcommand{\ddnnf}{\ensuremath{\mathsf{dag}}}
 \newcommand{\WAPS}{\ensuremath{\mathsf{WAPS}}}
 \newcommand{\KUS}{\ensuremath{\mathsf{KUS}}}
+\newcommand{\DSPACE}{\ensuremath{\mathsf{DSPACE}}}
+\newcommand{\RNC}{\ensuremath{\mathsf{RNC}}}
+\newcommand{\BPP}{\ensuremath{\mathsf{BPP}}}
+\newcommand{\DTIME}{\ensuremath{\mathsf{DTIME}}}
+\newcommand{\RTIME}{\ensuremath{\mathsf{RTIME}}}
 \newcommand{\WeightGen}{\ensuremath{\mathsf{WeightGen}}}
 \newcommand{\prob}{\ensuremath{\mathsf{Pr}}}
 \newcommand{\UniGen}{\ensuremath{\mathsf{UniGen2}}}
@@ -187,8 +192,46 @@
 		\item[--] Polynomial-funtions.
 		\item[--] \textcolor{blue}{Boolean-circuits}.
 	\end{itemize}
+	\pause
+	\item G is a \textcolor{blue}{quick pseudorandom generator} if it runs in \underline{deterministic} time \textcolor{red}{exponential} in its input size, $G \in \DTIME (2^{O(r)})$.
+	\begin{itemize}
+		\item[--] \textcolor{blue}{quality of the output} -- $n,\epsilon$
+		\item[--] \textcolor{blue}{price} -- $r$
+	\end{itemize}
 \end{itemize}
-\end{frame} 
+\end{frame}
+\begin{frame}{Motivation}
+\begin{itemize}
+	\item If there exists a quick pseudorandom generator $G: \log(n) \rightarrow n$ then for any time constructible bound $t=t(n):$ $$\RTIME(t) \subset \DTIME(2^{O(\log(t^2))})$$
+	\pause
+	\begin{center}
+			        \includegraphics[width=0.4\columnwidth]{figures/RandomSimulation}
+	\end{center}
+\pause
+\item  Simulate $A$ deterministically, by trying all the possible random seeds and taking a majority vote. 
+\end{itemize}
+\end{frame}
+\begin{frame}{Applications}
+	\begin{minipage}[b]{0.3\textwidth}
+	        \begin{center}
+		        \includegraphics[width=\columnwidth]{figures/octopus.jpg}
+	        \end{center}
+	 \end{minipage}
+ \begin{minipage}[b]{0.65\textwidth}
+ 	        \begin{itemize}
+				\item $\BPP \subset	\cap_{\epsilon > 0}	\DTIME (2^{n^{\epsilon}})$
+				\pause
+				\item   $\BPP \subset \DTIME (2^{(\log n)^{c}})$
+				\pause
+				\item $\BPP = P$
+				\pause
+				\item $\RNC \subset\cap_{\epsilon > 0}	\DSPACE ({n^{\epsilon}})$
+				\pause 
+				\item $\RNC \subset \DSPACE(polylog)$\\
+				\quad \quad \vdots
+ 	        \end{itemize}
+ 	    \end{minipage} 
+\end{frame}
 %	\begin{minipage}[b]{0.3\textwidth}
 %        \begin{center}
 %%	        \includegraphics[width=\columnwidth]{figures/HardwareValidation}
