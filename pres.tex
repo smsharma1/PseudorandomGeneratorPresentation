@@ -185,19 +185,19 @@
 \section{Pseudorandom Generator}
 \begin{frame}{Pseudorandom Generator (PRG)}
 \begin{itemize}
-	\item $G: \{0,1\}^r \rightarrow \{0,1\}^n$ is a {\underline{pseudorandom generator}} such that it \textcolor{red}{appears random (fools)} to a \textcolor{blue}{class of test functions}.
+	\item $G: \{0,1\}^r \rightarrow \{0,1\}^n$ is a {\underline{pseudorandom generator}} such that it \textcolor{red}{appears random (fools)} to a \textcolor{blue}{class of test functions}
 	\pause
 	\item $G$ \textcolor{red}{$\epsilon$-fools} $F$ if $\forall f \in F$ such that $f: \{0,1\}^n \rightarrow \{0,1\}$
 	$$\Big|\prob\big[f(y) = 1\big] -  \prob\big[f(G(x)) = 1 \big]\Big| \leq \epsilon$$
 	where $x$ is choosen uniformly from $\{0,1\}^r$ and $y$ from $\{0,1\}^n$
 	\pause
 	\begin{itemize}
-		\item[--] Parity-function.
-		\item[--] Polynomial-funtions.
-		\item[--] \textcolor{blue}{Boolean-circuits}.
+		\item[--] Parity-function
+		\item[--] Polynomial-funtions
+		\item[--] \textcolor{blue}{Boolean-circuits}
 	\end{itemize}
 	\pause
-	\item G is a \textcolor{blue}{quick pseudorandom generator} if it runs in \underline{deterministic} time \textcolor{red}{exponential} in its input size, $G \in \DTIME (2^{O(r)})$.
+	\item G is a \textcolor{blue}{quick pseudorandom generator} if it runs in \underline{deterministic} time \textcolor{red}{exponential} in its input size, $G \in \DTIME (2^{O(r)})$
 	\pause 
 	\begin{itemize}
 		\item[--] \textcolor{blue}{quality of the output} -- $n,\epsilon$
@@ -214,7 +214,7 @@
 			        \includegraphics[width=0.4\columnwidth]{figures/RandomSimulation}
 	\end{center}
 \pause
-\item  Simulate $A$ deterministically, by trying all the possible random seeds and taking a majority vote. 
+\item  Simulate $A$ deterministically, by trying all the possible random seeds and taking a majority vote
 \end{itemize}
 \end{frame}
 \begin{frame}{Applications}
@@ -249,29 +249,29 @@
 \end{frame}
 \begin{frame}{Contribution of Paper}
 \begin{itemize}
-	\item Construction of pseudorandom generator based on much weaker assumptions ({\EXPTIME} cannot be \textcolor{red}{approximated} by circuits of small size).
+	\item Construction of pseudorandom generator based on much weaker assumptions ({\EXPTIME} cannot be \textcolor{red}{approximated} by circuits of small size)
 	\pause
-	\item Equivalence between the problem of \textcolor{blue}{proving lower bounds for the size of circuits approximating functions in {\EXPTIME}}, and the problem of \textcolor{red}{constructing pseudorandom generators which run ``sufficiently fast''}.
+	\item Equivalence between the problem of \textcolor{blue}{proving lower bounds for the size of circuits approximating functions in {\EXPTIME}}, and the problem of \textcolor{red}{constructing pseudorandom generators which run ``sufficiently fast''}
 	\pause
-	\item Randomized Parallel Computation.\\
+	\item Randomized Parallel Computation\\
 	\pause
 	\quad \quad \vdots
 \end{itemize}
 \end{frame}
 \begin{frame}{Hardness}
 \begin{itemize}
-	\item Generator is constructed on the assumption of existence of \textcolor{red}{hard} functions.
+	\item Generator is constructed on the assumption of existence of \textcolor{red}{hard} functions
 	\pause
-	\item \textcolor{red}{Hard}: function can not be \underline{computed/\textcolor{blue}{approximated}} by \textcolor{blue}{small}-circuits.
+	\item \textcolor{red}{Hard}: function can not be \underline{computed/\textcolor{blue}{approximated}} by \textcolor{blue}{small}-circuits
 	\pause
 	\item  Let $f:\{0,1\}^n \rightarrow \{0, 1\}$ be a boolean function. We say that $f$ is (\textcolor{blue}{$\epsilon,S$})-hard if for any circuit $C$ of size $S$,
 	$$\Big|\prob\big[C(x)=f(x)\big]- \frac{1}{2}\Big| < \frac{\epsilon}{2}$$
 	\pause
-	\item \href{https://ieeexplore.ieee.org/document/4568378/}{Yao} proved that even harder function can be constructed by xor-ing multiple copies of $f$.
+	\item \href{https://ieeexplore.ieee.org/document/4568378/}{Yao} proved that even harder function can be constructed by xor-ing multiple copies of $f$
 	\pause
 	\item Let $f_1, \cdots, f_k$ all be $(\epsilon,S)$-hard. Then for any $\delta>0$, the function $f(x_1, \cdot, x_k)$ defined by
 	$$f(x_1, \cdot, x_k)= \sum_{i = i}^{k} f_i(x_i) (mod~2)$$
-	is  $(\epsilon^k + \delta, \delta^2(1-\epsilon)^2S)$-hard.
+	is  $(\epsilon^k + \delta, \delta^2(1-\epsilon)^2S)$-hard
 \end{itemize}
 \end{frame}
 \begin{frame}{Hardness}
@@ -302,19 +302,19 @@
 	\item Construction:
 	\pause
 	\begin{itemize}
-		\item[--] $f$ a boolean function, $f:\{0, 1\}^m \rightarrow \{0, 1\}$, such that \textcolor{red}{$H_{f(m)} \ge n^2$}.
+		\item[--] $f$ a boolean function, $f:\{0, 1\}^m \rightarrow \{0, 1\}$, such that \textcolor{red}{$H_{f(m)} \ge n^2$}
 		\pause
-		\item[--] $A$ a boolean $n \times l$ matrix which is a \textcolor{red}{$(logn,m)$} design.
+		\item[--] $A$ a boolean $n \times l$ matrix which is a \textcolor{red}{$(logn,m)$} design
 		\pause
-		\item[--] $G:l \rightarrow n$ given by $G(x) = f_{A(x)}$ is a pseudorandom generator.
+		\item[--] $G:l \rightarrow n$ given by $G(x) = f_{A(x)}$ is a pseudorandom generator
 		\pause
-		\item[--] $f_{A(x)}$ the $n$ bit vector of bits computed by applying the function $f$ to the subsets of the $x's$ denoted by the $n$ different rows of $A$.
+		\item[--] $f_{A(x)}$ the $n$ bit vector of bits computed by applying the function $f$ to the subsets of the $x's$ denoted by the $n$ different rows of $A$
 	\end{itemize}
 \end{itemize}
 \end{frame}
 \begin{frame}{Proof (Main Idea)}
 \begin{itemize}
-	\item Assume that $G$ is not pseudorandom generator.
+	\item Assume that $G$ is not pseudorandom generator
 	$$ \Big|\prob\big[C(y)=1\big] - \prob\big[C(G (x))=1\big]\Big| > \frac{1}{n}$$
 	\pause
 	\item This implies that one of the bits of $f_{A(x)}$ can be predicted from the previous ones
@@ -326,13 +326,13 @@
 \end{frame}
 \begin{frame}{Nearly Disjoint Sets}
 \begin{itemize}
-	\item Given a \textcolor{red}{``hard"} function $f$ with a certain \textcolor{red}{``hardness"}, $H_f$, and we wish to use it to generate a pseudorandom generator $G:l \rightarrow n$.
+	\item Given a \textcolor{red}{``hard"} function $f$ with a certain \textcolor{red}{``hardness"}, $H_f$, and we wish to use it to generate a pseudorandom generator $G:l \rightarrow n$
 	\pause
-	\item Aim is to \textcolor{red}{minimize} l, that is to get a pseudorandom generator that uses the smallest number of random bits.
+	\item Aim is to \textcolor{red}{minimize} l, that is to get a pseudorandom generator that uses the smallest number of random bits
 	\pause
 	\item Require a \textcolor{red}{$(\log n,m)$-design}, where $m$ must satisfy \textcolor{red}{$H_{f(m)} \geq n^2$}
 	\pause
-	\item \textcolor{blue}{For all integers $n$ and $m$, such that $logn \leq m \leq n$, there exists an $n \times l$ matrix which is a $(\log n,m)$-design, where $l = O(m^2)$. Moreover, the matrix can be computed by a Turing machine running in space $O(\log n)$.}
+	\item \textcolor{blue}{For all integers $n$ and $m$, such that $logn \leq m \leq n$, there exists an $n \times l$ matrix which is a $(\log n,m)$-design, where $l = O(m^2)$. Moreover, the matrix can be computed by a Turing machine running in space $O(\log n)$}
 	\pause
 	\item \textcolor{blue}{For all integers $n$ and $m$, where $m=C\log n$, there exists a $n \times l$ matrix which is a $(\log n,m)$-design where $l = O(C^2\log n)$. Moreover, the matrix can be computed by a Turing machine running in time polynomial in $n$}
 \end{itemize}
@@ -342,11 +342,11 @@
 	\item  For every function $s, l \leq s(l) \leq 2^l$ the following are equivalent:
 	\pause
 	\begin{itemize}
-		\item[--] For some $c > 0$ some function in {\EXPTIME} cannot be \textcolor{red}{approximated} by circuits of	size $s(l^c)$.
+		\item[--] For some $c > 0$ some function in {\EXPTIME} cannot be \textcolor{red}{approximated} by circuits of	size $s(l^c)$
 		\pause
-		\item[--] For some $c > 0$ there exists a function in {\EXPTIME} with \textcolor{red}{hardness} $s(l^c)$.
+		\item[--] For some $c > 0$ there exists a function in {\EXPTIME} with \textcolor{red}{hardness} $s(l^c)$
 		\pause
-		\item[--] For some $c > 0$ there exists a quick pseudorandom generator \textcolor{red}{$G:l \rightarrow s(l^c)$}.
+		\item[--] For some $c > 0$ there exists a quick pseudorandom generator \textcolor{red}{$G:l \rightarrow s(l^c)$}
 	\end{itemize}
 \end{itemize}
 \end{frame}
