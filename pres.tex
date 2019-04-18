@@ -84,7 +84,13 @@
 %\setbeamertemplate{footline}[frame number]{}
 
 %gets rid of bottom navigation symbols
-\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
 %\usepackage[dvipsnames]{xcolor}
 %gets rid of footer
 %will override 'frame number' instruction above
@@ -184,6 +190,7 @@
 \section{Pseudorandom Generator}
 \begin{frame}{Pseudorandom Generator (PRG)}
 \begin{itemize}
+	\pause
 	\item $G: \{0,1\}^r \rightarrow \{0,1\}^n$ is a {\underline{pseudorandom generator}} such that it \textcolor{red}{appears random (fools)} to a \textcolor{blue}{class of test functions}.
 	\pause
 	\item $G$ \textcolor{red}{$\epsilon$-fools} $F$ if $\forall f \in F$ such that $f: \{0,1\}^n \rightarrow \{0,1\}$
@@ -206,6 +213,7 @@
 \end{frame}
 \begin{frame}{Motivation}
 \begin{itemize}
+	\pause
 	\item If there exists a quick pseudorandom generator \textcolor{cyan}{$G: \log(n) \rightarrow n$} then for any time constructible bound $t=t(n):$ 
 	\textcolor{red}{$$\RTIME(t) \subset \DTIME(2^{O(\log(t^2))})$$}
 	\pause
@@ -248,6 +256,7 @@
 \end{frame}
 \begin{frame}{Contribution of Paper}
 \begin{itemize}
+	\pause
 	\item Construction of pseudorandom generator based on much weaker assumptions ({\EXPTIME} cannot be \textcolor{red}{approximated} by circuits of small size).
 	\pause
 	\item Equivalence between the problem of \textcolor{blue}{proving lower bounds for the size of circuits approximating functions in {\EXPTIME}}, and the problem of \textcolor{red}{constructing pseudorandom generators which run ``sufficiently fast''}.
@@ -264,7 +273,7 @@
 	\item \textcolor{red}{Hard}: function can not be \underline{computed/\textcolor{blue}{approximated}} by \textcolor{blue}{small}-circuits.
 	\pause
 	\item  Let $f:\{0,1\}^n \rightarrow \{0, 1\}$ be a boolean function. We say that $f$ is (\textcolor{blue}{$\epsilon,S$})-hard if for any circuit $C$ of size $S$,
-	$$\Big|\prob\big[C(x)=f(x)\big]- \frac{1}{2}\Big| < \frac{\epsilon}{2}$$
+	$$\Big|\prob\big[C(x)=f(x)\big]- \frac{1}{2}\Big| < \epsilon$$
 	\pause
 	\item \href{https://ieeexplore.ieee.org/document/4568378/}{Yao} proved that even harder function can be constructed by xor-ing multiple copies of $f$.
 	\pause
@@ -290,6 +299,7 @@
 \end{frame}
 \begin{frame}{Construction}
 \begin{itemize}
+	\pause
 	\item A collection of sets $\{S_1, \cdots, S_n\}$, where $S_i \subset \{1, \cdots ,l\}$ is called a $(k,m)$-design if:
 	\begin{itemize}
 		\item[--] $\forall i:~|S_i| = m$
@@ -323,19 +333,19 @@
 	\item This contradicts that  \textcolor{red}{$H_{f(m)} \ge n^2$}
 \end{itemize}
 \end{frame}
-\begin{frame}{Nearly Disjoint Sets}
-\begin{itemize}
-	\item Given a \textcolor{red}{``hard"} function $f$ with a certain \textcolor{red}{``hardness"}, $H_f$, and we wish to use it to generate a pseudorandom generator $G:l \rightarrow n$.
-	\pause
-	\item Aim is to \textcolor{red}{minimize} l, that is to get a pseudorandom generator that uses the smallest number of random bits.
-	\pause
-	\item Require a \textcolor{red}{$(\log n,m)$-design}, where $m$ must satisfy \textcolor{red}{$H_{f(m)} \geq n^2$}
-	\pause
-	\item \textcolor{blue}{For all integers $n$ and $m$, such that $logn \leq m \leq n$, there exists an $n \times l$ matrix which is a $(\log n,m)$-design, where $l = O(m^2)$. Moreover, the matrix can be computed by a Turing machine running in space $O(\log n)$.}
-	\pause
-	\item \textcolor{blue}{For all integers $n$ and $m$, where $m=C\log n$, there exists a $n \times l$ matrix which is a $(\log n,m)$-design where $l = O(C^2\log n)$. Moreover, the matrix can be computed by a Turing machine running in time polynomial in $n$}
-\end{itemize}
-\end{frame}
+%\begin{frame}{Nearly Disjoint Sets}
+%\begin{itemize}
+%	\item Given a \textcolor{red}{``hard"} function $f$ with a certain \textcolor{red}{``hardness"}, $H_f$, and we wish to use it to generate a pseudorandom generator $G:l \rightarrow n$.
+%	\pause
+%	\item Aim is to \textcolor{red}{minimize} l, that is to get a pseudorandom generator that uses the smallest number of random bits.
+%	\pause
+%	\item Require a \textcolor{red}{$(\log n,m)$-design}, where $m$ must satisfy \textcolor{red}{$H_{f(m)} \geq n^2$}
+%	\pause
+%	\item \textcolor{blue}{For all integers $n$ and $m$, such that $logn \leq m \leq n$, there exists an $n \times l$ matrix which is a $(\log n,m)$-design, where $l = O(m^2)$. Moreover, the matrix can be computed by a Turing machine running in space $O(\log n)$.}
+%	\pause
+%	\item \textcolor{blue}{For all integers $n$ and $m$, where $m=C\log n$, there exists a $n \times l$ matrix which is a $(\log n,m)$-design where $l = O(C^2\log n)$. Moreover, the matrix can be computed by a Turing machine running in time polynomial in $n$}
+%\end{itemize}
+%\end{frame}
 \begin{frame}{What did we achieved?}
 \begin{itemize}
 	\item  For every function $s, l \leq s(l) \leq 2^l$ the following are equivalent:
