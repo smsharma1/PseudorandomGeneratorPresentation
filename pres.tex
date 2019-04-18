@@ -176,7 +176,7 @@
 \begin{frame}
   \titlepage
   \begin{center}
-  	\footnote{\href{https://www.math.ias.edu/avi/node/780}{https://www.math.ias.edu/avi/node/780}}
+  	\footnote{\href{https://www.math.ias.edu/avi/node/780}{https://www.math.ias.edu/avi/node/780} \textcolor{red}{Noam Nisan and Avi Wigderson }}
 %  	The tool is available online \href{https://github.com/meelgroup/WAPS}{\textcolor{blue}{https://github.com/meelgroup/WAPS}}
   \end{center}
   
@@ -187,8 +187,8 @@
 \begin{itemize}
 	\item $G: \{0,1\}^r \rightarrow \{0,1\}^n$ is a {\underline{pseudorandom generator}} such that it \textcolor{red}{appears random (fools)} to a \textcolor{blue}{class of test functions}.
 	\pause
-	\item $G~\epsilon$-fools $F$ if $\forall f \in F$ such that $f: \{0,1\}^n \rightarrow \{0,1\}$
-	$$\Big|\prob\big[f(y)\big] -  \prob\big[f(G(x))\big]\Big| \leq \epsilon$$
+	\item $G$ \textcolor{red}{$\epsilon$-fools} $F$ if $\forall f \in F$ such that $f: \{0,1\}^n \rightarrow \{0,1\}$
+	$$\Big|\prob\big[f(y) = 1\big] -  \prob\big[f(G(x)) = 1 \big]\Big| \leq \epsilon$$
 	where $x$ is choosen uniformly from $\{0,1\}^r$ and $y$ from $\{0,1\}^n$
 	\pause
 	\begin{itemize}
@@ -198,6 +198,7 @@
 	\end{itemize}
 	\pause
 	\item G is a \textcolor{blue}{quick pseudorandom generator} if it runs in \underline{deterministic} time \textcolor{red}{exponential} in its input size, $G \in \DTIME (2^{O(r)})$.
+	\pause 
 	\begin{itemize}
 		\item[--] \textcolor{blue}{quality of the output} -- $n,\epsilon$
 		\item[--] \textcolor{blue}{price} -- $r$
@@ -206,7 +207,8 @@
 \end{frame}
 \begin{frame}{Motivation}
 \begin{itemize}
-	\item If there exists a quick pseudorandom generator $G: \log(n) \rightarrow n$ then for any time constructible bound $t=t(n):$ $$\RTIME(t) \subset \DTIME(2^{O(\log(t^2))})$$
+	\item If there exists a quick pseudorandom generator \textcolor{cyan}{$G: \log(n) \rightarrow n$} then for any time constructible bound $t=t(n):$ 
+	\textcolor{red}{$$\RTIME(t) \subset \DTIME(2^{O(\log(t^2))})$$}
 	\pause
 	\begin{center}
 			        \includegraphics[width=0.4\columnwidth]{figures/RandomSimulation}
@@ -223,14 +225,11 @@
 	 \end{minipage}
  \begin{minipage}[b]{0.65\textwidth}
  	        \begin{itemize}
+ 	        	\pause
 				\item $\BPP \subset	\cap_{\epsilon > 0}	\DTIME (2^{n^{\epsilon}})$
-				\pause
 				\item   $\BPP \subset \DTIME (2^{(\log n)^{c}})$
-				\pause
 				\item $\BPP = P$
-				\pause
 				\item $\RNC \subset\cap_{\epsilon > 0}	\DSPACE ({n^{\epsilon}})$
-				\pause 
 				\item $\RNC \subset \DSPACE(polylog)$\\
 				\quad \quad \vdots
  	        \end{itemize}
@@ -239,7 +238,7 @@
 \begin{frame}{Prior Work}
 \begin{itemize}
 	\item \href{https://link.springer.com/chapter/10.1007/3-540-10843-2_43}{Shamir}: RSA function
-	\item  \href{https://dl.acm.org/citation.cfm?id=2068}{Blum and Micali}: Intractability of the Discrete Logarithm function
+	\item  \href{https://dl.acm.org/citation.cfm?id=2068}{Blum and Micali}: Intractability of Discrete Logarithm function
 	\item \href{https://ieeexplore.ieee.org/document/4568378}{Yao}: One-way permutation
 	\pause
 	\begin{itemize}
@@ -250,9 +249,12 @@
 \end{frame}
 \begin{frame}{Contribution of Paper}
 \begin{itemize}
-	\item Construction of pseudorandom generator based on much weaker assumptions ({\EXPTIME} cannot be approximated by circuits of small size).
-	\item Equivalence between the problem of proving lower bounds for the size of circuits approximating functions in {\EXPTIME}, and the problem of constructing pseudorandom generators which run ``sufficiently fast''.
+	\item Construction of pseudorandom generator based on much weaker assumptions ({\EXPTIME} cannot be \textcolor{red}{approximated} by circuits of small size).
+	\pause
+	\item Equivalence between the problem of \textcolor{blue}{proving lower bounds for the size of circuits approximating functions in {\EXPTIME}}, and the problem of \textcolor{red}{constructing pseudorandom generators which run ``sufficiently fast''}.
+	\pause
 	\item Randomized Parallel Computation.\\
+	\pause
 	\quad \quad \vdots
 \end{itemize}
 \end{frame}
@@ -268,7 +270,7 @@
 	\item \href{https://ieeexplore.ieee.org/document/4568378/}{Yao} proved that even harder function can be constructed by xor-ing multiple copies of $f$.
 	\pause
 	\item Let $f_1, \cdots, f_k$ all be $(\epsilon,S)$-hard. Then for any $\delta>0$, the function $f(x_1, \cdot, x_k)$ defined by
-	$$f(x_1, \cdot, x_k)= \sum_{i = i}^{k} f_i(xi) (mod~2)$$
+	$$f(x_1, \cdot, x_k)= \sum_{i = i}^{k} f_i(x_i) (mod~2)$$
 	is  $(\epsilon^k + \delta, \delta^2(1-\epsilon)^2S)$-hard.
 \end{itemize}
 \end{frame}
